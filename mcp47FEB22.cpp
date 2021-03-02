@@ -282,8 +282,6 @@ void mcp47FEB22::getStatus()
       int hiByte = Wire.read();
       int loByte = Wire.read();
       _values[channel] = word((hiByte & 0B00001111), loByte);
-      Wire.endTransmission();
-      
   }
   
    //Vref
@@ -298,7 +296,6 @@ void mcp47FEB22::getStatus()
       _intVref[0] = (loByte & 0B00000011);
       _intVref[1] = (loByte & 0B00001100);
   }
-  Wire.endTransmission();
   
   //Power-Down
   Wire.beginTransmission(_dev_address);
@@ -312,7 +309,6 @@ void mcp47FEB22::getStatus()
       _powerDown[0] = (loByte & 0B00000011);
       _powerDown[1] = (loByte & 0B00001100);
   }
-  Wire.endTransmission();
   
   //Gain
   Wire.beginTransmission(_dev_address);
@@ -326,7 +322,6 @@ void mcp47FEB22::getStatus()
       _gain[0] = (hiByte & 0B00000001);
       _gain[1] = (hiByte & 0B00000010);
   }
-  Wire.endTransmission();
   
   //WiperLock
   Wire.beginTransmission(_dev_address);
@@ -340,7 +335,6 @@ void mcp47FEB22::getStatus()
       _wiperLock[0] = (loByte & 0B00000011);
       _wiperLock[1] = (loByte & 0B00001100);
   }
-  Wire.endTransmission();
   
   //Non-Volatile Registers (EEPROM)
   for (uint8_t channel=0; channel <= 1; channel++) {
@@ -352,8 +346,6 @@ void mcp47FEB22::getStatus()
       int hiByte = Wire.read();
       int loByte = Wire.read();
       _valuesEp[channel] = word((hiByte & 0B00001111), loByte);
-      Wire.endTransmission();
-      
   }
   
    //Vref
@@ -368,7 +360,6 @@ void mcp47FEB22::getStatus()
       _intVrefEp[0] = (loByte & 0B00000011);
       _intVrefEp[1] = (loByte & 0B00001100);
   }
-  Wire.endTransmission();
   
   //Power-Down
   Wire.beginTransmission(_dev_address);
@@ -382,7 +373,6 @@ void mcp47FEB22::getStatus()
       _powerDownEp[0] = (loByte & 0B00000011);
       _powerDownEp[1] = (loByte & 0B00001100);
   }
-  Wire.endTransmission();
   
   //Gain
   Wire.beginTransmission(_dev_address);
@@ -396,7 +386,6 @@ void mcp47FEB22::getStatus()
       _gainEp[0] = (hiByte & 0B00000001);
       _gainEp[1] = (hiByte & 0B00000010);
   }
-  Wire.endTransmission();
   
 }
 /*
