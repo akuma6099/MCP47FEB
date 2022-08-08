@@ -149,7 +149,7 @@ uint8_t mcp47FEB22::getVref(uint8_t channel)
             return _intVref[channel] >> 2;
             break;
         default:
-            _intVref[channel];
+            return _intVref[channel];
             break;
     }
 }
@@ -170,6 +170,7 @@ uint8_t mcp47FEB22::getGain(uint8_t channel)
             return _gain[channel];
             break;
     }
+    
 }
 /*
   Return PowerDown setting
